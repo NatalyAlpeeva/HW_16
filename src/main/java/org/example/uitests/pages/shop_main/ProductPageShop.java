@@ -15,6 +15,9 @@ public class ProductPageShop extends BasePage {
     @FindBy(id = "selectProductSort")
     private WebElement sortByElement;
 
+    @FindBy(id="nb_item")
+    private WebElement itemsSelector;
+
     public ProductPageShop() {
         super();
     }
@@ -42,6 +45,11 @@ public class ProductPageShop extends BasePage {
         }
 
         return productList;
+    }
+    public void select60Items() throws InterruptedException {
+        Select select = new Select(itemsSelector);
+        select.selectByValue("60");
+        sleep(1500);
     }
 
     public ProductPageShop sortBy(SortDirection sortDirection) throws InterruptedException {

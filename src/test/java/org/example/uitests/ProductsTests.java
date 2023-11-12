@@ -22,12 +22,14 @@ public class ProductsTests extends BaseTests {
     public void allProductsTest() {
         List<Product> productList = new ProductPageShop().getProducts();
 
+
         Assert.assertEquals(productList.size(), 12);
     }
 
     @Test
     public void checkSortingTest() throws InterruptedException {
         ProductPageShop productPageShop = new ProductPageShop();
+        productPageShop.select60Items();
         List<Product> productsAsIs = productPageShop.getProducts();
 
         List<Product> productsAfterSorting = productPageShop.sortBy(SortDirection.PRICE_LOW_TO_HIGH).getProducts();
